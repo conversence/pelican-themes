@@ -37,8 +37,14 @@
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
         <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+        {% if page.parent2url %}
+        <li class="{{page.parent2class}}"><a href="{{page.parent2url}}">{{ page.parent2title }}</a></li>
+        {% endif %}
+        {% if page.parent1url %}
+        <li class="{{page.parent1class}}"><a href="{{page.parent1url}}">{{ page.parent1title }}</a></li>
+        {% endif %}
 	  {% if page.url %}
-        <li class="active">{{ page.title }}</li>
+        <li class="active {{page.contentclass}}">{{ page.title }}</li>
 	  {% endif %}
     </ol>
     {% endif %}
